@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Workflow — FlowKit AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0a0a0f; color: #fff; line-height: 1.6; }
+    .sidebar { width: 260px; background: rgba(15,15,25,0.95); border-right: 1px solid rgba(255,255,255,0.05); padding: 24px; position: fixed; height: 100vh; }
+    .sidebar-logo { font-size: 24px; font-weight: 800; background: linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 40px; display: block; text-decoration: none; }
+    .nav-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; margin-bottom: 12px; }
+    .nav-item { display: block; padding: 12px 16px; color: #94a3b8; text-decoration: none; border-radius: 10px; margin-bottom: 4px; transition: all 0.2s; }
+    .nav-item:hover, .nav-item.active { background: rgba(102,126,234,0.1); color: #fff; }
+    .main-content { margin-left: 260px; padding: 40px; min-height: 100vh; }
+    h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .subtitle { color: #94a3b8; margin-bottom: 32px; }
+    .form-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
+    .form-group { margin-bottom: 24px; }
+    label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 14px; }
+    input, select, textarea { width: 100%; padding: 12px 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #fff; font-size: 15px; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: #667eea; }
+    textarea { min-height: 140px; resize: vertical; }
+    .price-wrap { position: relative; max-width: 180px; }
+    .price-wrap::before { content: '$'; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #64748b; }
+    .price-wrap input { padding-left: 40px; }
+    .btn { padding: 14px 28px; background: linear-gradient(135deg,#667eea,#764ba2); color: #fff; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; }
+    .btn-secondary { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); }
+    .preview-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 24px; position: sticky; top: 40px; }
+    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 16px 24px; background: rgba(10,10,15,0.95); }
+    .mobile-nav .logo { font-size: 20px; font-weight: 800; background: linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+    @media (max-width: 768px) { .sidebar { display: none; } .mobile-nav { display: block; } .main-content { margin-left: 0; padding: 80px 20px 40px; } .form-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav class="mobile-nav"><a href="index.html" class="logo">FlowKit AI</a></nav>
+  
+  <aside class="sidebar">
+    <a href="index.html" class="sidebar-logo">FlowKit AI</a>
+    <div class="nav-section">
+      <div class="nav-label">Seller</div>
+      <a href="dashboard.html" class="nav-item">Dashboard</a>
+      <a href="upload.html" class="nav-item active">Upload</a>
+      <a href="#" class="nav-item">My Workflows</a>
+      <a href="#" class="nav-item">Sales</a>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <h1>Upload Workflow</h1>
+    <p class="subtitle">List your AI workflow for sale</p>
+    
+    <div class="form-grid">
+      <form id="uploadForm">
+        <div class="form-group">
+          <label>Workflow Title</label>
+          <input type="text" id="title" placeholder="e.g., 30-Day Content Marketing System" required>
+        </div>
+        
+        <div class="form-group">
+          <label>Category</label>
+          <select id="category" required>
+            <option value="">Select...</option>
+            <option value="marketing">Marketing</option>
+            <option value="sales">Sales</option>
+            <option value="creative">Creative</option>
+            <option value="research">Research</option>
+            <option value="automation">Automation</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Price (USD)</label>
+          <div class="price-wrap">
+            <input type="number" id="price" min="5" max="500" placeholder="99" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="description" placeholder="Describe what your workflow does and results buyers can expect..." required></textarea>
+        </div>
+        
+        <div style="display: flex; gap: 16px;">
+          <button type="submit" class="btn">Publish</button>
+          <button type="button" class="btn btn-secondary">Save Draft</button>
+        </div>
+      </form>
+      
+      <aside class="preview-box">
+        <p style="color: #64748b; font-size: 12px; text-transform: uppercase; margin-bottom: 16px;">Live Preview</p>
+        <div class="preview-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px;">
+          <span id="previewCat" style="background: rgba(102,126,234,0.2); color: #a78bfa; padding: 4px 10px; border-radius: 6px; font-size: 11px; text-transform: uppercase;">Category</span>
+          <h4 id="previewTitle" style="font-size: 18px; font-weight: 600; margin: 12px 0 8px;">Your Title</h4>
+          <p id="previewDesc" style="color: #94a3b8; font-size: 14px; margin-bottom: 12px;">Description preview...</p>
+          <span id="previewPrice" style="font-size: 24px; font-weight: 700; background: linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">$0</span>
+        </div>
+        <p style="color: #64748b; font-size: 13px; margin-top: 16px;">This is how buyers will see your listing</p>
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    const title = document.getElementById('title');
+    const category = document.getElementById('category');
+    const price = document.getElementById('price');
+    const description = document.getElementById('description');
+    
+    title.addEventListener('input', () => { document.getElementById('previewTitle').textContent = title.value || 'Your Title'; });
+    category.addEventListener('change', () => { document.getElementById('previewCat').textContent = category.options[category.selectedIndex].text; });
+    price.addEventListener('input', () => { document.getElementById('previewPrice').textContent = price.value ? '$' + price.value : '$0'; });
+    description.addEventListener('input', () => { document.getElementById('previewDesc').textContent = description.value.substring(0, 100) + (description.value.length > 100 ? '...' : '') || 'Description preview...'; });
+    
+    document.getElementById('uploadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Workflow submitted for review! You\'ll receive an email when it\'s live.');
+      window.location.href = 'dashboard.html';
+    });
+  </script>
+</body>
+</html>
