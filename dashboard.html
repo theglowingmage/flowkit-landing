@@ -10,8 +10,8 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background: #0a0a0f; color: #fff; line-height: 1.6; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     
+    /* Mobile Nav */
     .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 16px 24px; background: rgba(10,10,15,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); }
     .mobile-nav-content { display: flex; justify-content: space-between; align-items: center; }
     .mobile-nav .logo { font-size: 24px; font-weight: 800; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
@@ -43,7 +43,7 @@
     .section-header h2 { font-size: 20px; font-weight: 600; }
     .btn { padding: 12px 24px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 10px; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(102,126,234,0.4); }
-    .btn-secondary { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: #fff; }
+    .btn-secondary { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); }
     .btn-secondary:hover { background: rgba(255,255,255,0.1); }
     
     .workflows-list { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; overflow: hidden; }
@@ -55,7 +55,7 @@
     .workflow-price { font-size: 18px; font-weight: 600; color: #a78bfa; }
     .workflow-status { padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; }
     .status-published { background: rgba(16,185,129,0.1); color: #10b981; }
-    .status-draft { background: rgba(234,179,8,0.1); color: #eab308; }
+    .status-pending { background: rgba(234,179,8,0.1); color: #eab308; }
     .workflow-actions { display: flex; gap: 8px; }
     .action-btn { padding: 8px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: #94a3b8; font-size: 12px; cursor: pointer; transition: all 0.2s; }
     .action-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
@@ -81,6 +81,7 @@
   </style>
 </head>
 <body>
+  <!-- Mobile Nav -->
   <nav class="mobile-nav">
     <div class="mobile-nav-content">
       <a href="index.html" class="logo">FlowKit AI</a>
@@ -101,6 +102,7 @@
   </div>
   
   <div class="layout">
+    <!-- Sidebar -->
     <aside class="sidebar">
       <a href="index.html" class="sidebar-logo">FlowKit AI</a>
       
@@ -114,17 +116,18 @@
       
       <div class="nav-section">
         <div class="nav-label">Account</div>
-        <a href="index.html" class="nav-item">🏠 Back to Site</a>
-        <a href="#" class="nav-item">🚪 Log Out</a>
+        <a href="index.html" class="nav-item">🌐 Back to Site</a>
       </div>
     </aside>
     
+    <!-- Main Content -->
     <main class="main-content">
-      <div class="page-header">
+      <      <div class="page-header">
         <h1>Dashboard</h1>
         <p>Welcome back! Here's how your workflows are performing.</p>
       </div>
       
+      <!-- Stats -->
       <div class="stats-grid">
         <div class="stat-card">
           <div class="stat-value">$0</div>
@@ -133,36 +136,38 @@
         </div>
         <div class="stat-card">
           <div class="stat-value">0</div>
-          <div class="stat-label">Workflows</div>
-          <div class="stat-change">Ready to upload your first?</div>
+          <div class="stat-label">Total Sales</div>
+          <div class="stat-change">Get your first sale</div>
         </div>
         <div class="stat-card">
           <div class="stat-value">0</div>
-          <div class="stat-label">Sales</div>
-          <div class="stat-change">This month</div>
+          <div class="stat-label">Active Workflows</div>
+          <div class="stat-change">Upload your first workflow</div>
         </div>
         <div class="stat-card">
-          <div class="stat-value">—</div>
-          <div class="stat-label">Average Rating</div>
-          <div class="stat-change">No reviews yet</div>
+          <div class="stat-value">$0</div>
+          <div class="stat-label">This Month</div>
+          <div class="stat-change">No sales yet</div>
         </div>
       </div>
       
+      <!-- Workflows Section -->
       <div class="section-header">
         <h2>Your Workflows</h2>
-        <a href="#" class="btn">+ New Workflow</a>
+        <a href="#" class="btn">+ Upload Workflow</a>
       </div>
       
       <div class="workflows-list">
+        <!-- Empty State -->
         <div class="empty-state">
           <h3>No workflows yet</h3>
-          <p>Create and upload your first AI workflow to start selling.</p>
-          <a href="#" class="btn" style="margin-top: 8px;">Create Your First Workflow</a>
+          <p>Upload your first AI workflow and start earning. You keep 90% of every sale.</p>
+          <a href="#" class="btn">Upload Workflow</a>
         </div>
       </div>
     </main>
   </div>
-
+  
   <script>
     const hamburger = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -176,6 +181,11 @@
     
     hamburger.addEventListener('click', toggleMenu);
     mobileOverlay.addEventListener('click', toggleMenu);
+    
+    // Close menu when clicking links
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', toggleMenu);
+    });
   </script>
 </body>
 </html>
