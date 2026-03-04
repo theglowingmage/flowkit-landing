@@ -8,11 +8,29 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: #0a0a0f; color: #fff; line-height: 1.6; }
+    
+    /* Full Navigation Styles */
+    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 16px 24px; background: rgba(10,10,15,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .mobile-nav-content { display: flex; justify-content: space-between; align-items: center; }
+    .mobile-nav .logo { font-size: 24px; font-weight: 800; background: linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+    .hamburger { cursor: pointer; background: none; border: none; padding: 8px; display: flex; flex-direction: column; gap: 5px; z-index: 1001; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; transition: all 0.3s; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+    .mobile-menu { position: fixed; top: 0; right: -100%; width: 300px; height: 100vh; background: rgba(10,10,15,0.98); backdrop-filter: blur(20px); border-left: 1px solid rgba(255,255,255,0.1); z-index: 999; padding: 80px 20px 20px; transition: right 0.3s ease; overflow-y: auto; }
+    .mobile-menu.active { right: 0; }
+    .mobile-menu a { display: block; color: #fff; text-decoration: none; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: 500; font-size: 15px; }
+    .mobile-menu a:hover { color: #a78bfa; }
+    .mobile-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 998; opacity: 0; visibility: hidden; transition: all 0.3s; }
+    .mobile-overlay.active { opacity: 1; visibility: visible; }
+    
     .sidebar { width: 260px; background: rgba(15,15,25,0.95); border-right: 1px solid rgba(255,255,255,0.05); padding: 24px; position: fixed; height: 100vh; }
     .sidebar-logo { font-size: 24px; font-weight: 800; background: linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 40px; display: block; text-decoration: none; }
     .nav-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; margin-bottom: 12px; }
     .nav-item { display: block; padding: 12px 16px; color: #94a3b8; text-decoration: none; border-radius: 10px; margin-bottom: 4px; transition: all 0.2s; }
     .nav-item:hover, .nav-item.active { background: rgba(102,126,234,0.1); color: #fff; }
+    
     .main-content { margin-left: 260px; padding: 40px; min-height: 100vh; }
     h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
     .subtitle { color: #94a3b8; margin-bottom: 32px; }
@@ -28,14 +46,42 @@
     .btn { padding: 14px 28px; background: linear-gradient(135deg,#667eea,#764ba2); color: #fff; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; }
     .btn-secondary { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); }
     .preview-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 24px; position: sticky; top: 40px; }
-    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 16px 24px; background: rgba(10,10,15,0.95); }
-    .mobile-nav .logo { font-size: 20px; font-weight: 800; background: linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
-    @media (max-width: 768px) { .sidebar { display: none; } .mobile-nav { display: block; } .main-content { margin-left: 0; padding: 80px 20px 40px; } .form-grid { grid-template-columns: 1fr; } }
+    
+    @media (max-width: 768px) { 
+      .mobile-nav { display: block; } 
+      .sidebar { display: none; } 
+      .main-content { margin-left: 0; padding: 100px 20px 40px; } 
+      .form-grid { grid-template-columns: 1fr; } 
+    }
   </style>
 </head>
 <body>
-  <nav class="mobile-nav"><a href="index.html" class="logo">FlowKit AI</a></nav>
+  <!-- Full Navigation -->
+  <nav class="mobile-nav">
+    <div class="mobile-nav-content">
+      <a href="index.html" class="logo">FlowKit AI</a>
+      <button class="hamburger" id="menuToggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
   
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="browse.html">Browse</a>
+    <a href="sell.html">Sell</a>
+    <a href="free-tool.html">Free Tool</a>
+    <div style="border-top: 1px solid rgba(255,255,255,0.1); margin: 16px 0; padding-top: 16px;">
+      <div style="color:#64748b; font-size: 11px; text-transform:uppercase; margin-bottom: 12px;">Seller</div>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="upload.html">Upload Workflow</a>
+      <a href="#">My Workflows</a>
+      <a href="#">Sales</a>
+    </div>
+  </div>
+  
+  <!-- Desktop Sidebar -->
   <aside class="sidebar">
     <a href="index.html" class="sidebar-logo">FlowKit AI</a>
     <div class="nav-section">
@@ -57,7 +103,6 @@
           <label>Workflow Title</label>
           <input type="text" id="title" placeholder="e.g., 30-Day Content Marketing System" required>
         </div>
-        
         <div class="form-group">
           <label>Category</label>
           <select id="category" required>
@@ -69,19 +114,16 @@
             <option value="automation">Automation</option>
           </select>
         </div>
-        
         <div class="form-group">
           <label>Price (USD)</label>
           <div class="price-wrap">
             <input type="number" id="price" min="5" max="500" placeholder="99" required>
           </div>
         </div>
-        
         <div class="form-group">
           <label>Description</label>
           <textarea id="description" placeholder="Describe what your workflow does and results buyers can expect..." required></textarea>
         </div>
-        
         <div style="display: flex; gap: 16px;">
           <button type="submit" class="btn">Publish</button>
           <button type="button" class="btn btn-secondary">Save Draft</button>
@@ -89,34 +131,29 @@
       </form>
       
       <aside class="preview-box">
-        <p style="color: #64748b; font-size: 12px; text-transform: uppercase; margin-bottom: 16px;">Live Preview</p>
-        <div class="preview-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px;">
-          <span id="previewCat" style="background: rgba(102,126,234,0.2); color: #a78bfa; padding: 4px 10px; border-radius: 6px; font-size: 11px; text-transform: uppercase;">Category</span>
-          <h4 id="previewTitle" style="font-size: 18px; font-weight: 600; margin: 12px 0 8px;">Your Title</h4>
-          <p id="previewDesc" style="color: #94a3b8; font-size: 14px; margin-bottom: 12px;">Description preview...</p>
-          <span id="previewPrice" style="font-size: 24px; font-weight: 700; background: linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">$0</span>
-        </div>
-        <p style="color: #64748b; font-size: 13px; margin-top: 16px;">This is how buyers will see your listing</p>
-      </aside>
-    </div>
-  </main>
+        <p style="color: #64748b; font-size: 12px; text-transform:Event('input', () => { document.getElementById('previewPrice').textContent = price.value ? '$' + price.value : '$0'; });
+description.addEventListener('input', () => { 
+  document.getElementById('previewDesc').textContent = description.value.substring(0, 100) + (description.value.length > 100 ? '...' : '') || 'Description preview...'; 
+});
 
-  <script>
-    const title = document.getElementById('title');
-    const category = document.getElementById('category');
-    const price = document.getElementById('price');
-    const description = document.getElementById('description');
-    
-    title.addEventListener('input', () => { document.getElementById('previewTitle').textContent = title.value || 'Your Title'; });
-    category.addEventListener('change', () => { document.getElementById('previewCat').textContent = category.options[category.selectedIndex].text; });
-    price.addEventListener('input', () => { document.getElementById('previewPrice').textContent = price.value ? '$' + price.value : '$0'; });
-    description.addEventListener('input', () => { document.getElementById('previewDesc').textContent = description.value.substring(0, 100) + (description.value.length > 100 ? '...' : '') || 'Description preview...'; });
-    
-    document.getElementById('uploadForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Workflow submitted for review! You\'ll receive an email when it\'s live.');
-      window.location.href = 'dashboard.html';
-    });
-  </script>
+document.getElementById('uploadForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('Workflow submitted for review!');
+  window.location.href = 'dashboard.html';
+});
+
+// Toggle menu
+function toggleMenu() {
+  document.getElementById('menuToggle').classList.toggle('active');
+  document.getElementById('mobileMenu').classList.toggle('active');
+  document.getElementById('mobileOverlay').classList.toggle('active');
+}
+
+document.getElementById('menuToggle').addEventListener('click', toggleMenu);
+document.getElementById('mobileOverlay').addEventListener('click', toggleMenu);
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+  link.addEventListener('click', toggleMenu);
+});
+</script>
 </body>
 </html>
