@@ -1,17 +1,123 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Sell Your Workflows — FlowKit AI</title> <meta name="description" content="Sell AI workflows on FlowKit. Keep 90% of every sale. 10% commission."> <style> * { margin: 0; padding: 0; box-sizing: border-box; } body { font-family: system-ui, sans-serif; background: #0a0a0f; color: #fff; line-height: 1.6; } .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; } .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px; background: rgba(10,10,15,0.9); border-bottom: 1px solid rgba(255,255,255,0.1); } .nav-content { display: flex; justify-content: space-between; align-items: center; } .logo { font-size: 24px; font-weight: 800; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; color: transparent; text-decoration: none; }
-.hamburger { cursor: pointer; background: none; border: none; padding: 8px; z-index: 1001; display: flex; flex-direction: column; gap: 5px; }
-.hamburger span { display: block; width: 24px; height: 2px; background: #fff; transition: all 0.3s; }
-.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-.mobile-menu { position: fixed; top: 0; right: -100%; width: 300px; height: 100vh; background: rgba(10,10,15,0.98); backdrop-filter: blur(20px); border-left: 1px solid rgba(255,255,255,0.1); z-index: 999; padding: 80px 24px 24px; transition: right 0.3s ease; }
-.mobile-menu.active { right: 0; }
-.mobile-menu a { display: block; color: #fff; text-decoration: none; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: 500; font-size: 16px; transition: color 0.2s; }
-.mobile-menu a:hover { color: #a78bfa; }
-.overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 998; opacity: 0; visibility: hidden; transition: all 0.3s; }
-.overlay.active { opacity: 1; visibility: visible; } .hero { padding: 120px 0 60px; text-align: center; } h1 { font-size: 48px; font-weight: 800; margin-bottom: 16px; } .subtitle { color: #94a3b8; font-size: 18px; margin-bottom: 40px; } .comparison { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; max-width: 800px; margin: 40px auto; } .comp { padding: 30px; border-radius: 12px; background: rgba(255,255,255,0.03); text-align: center; } .comp.winner { background: rgba(102,126,234,0.1); border: 1px solid #667eea; } .rate { font-size: 36px; font-weight: 800; } .form-section { padding: 60px 0; background: rgba(255,255,255,0.02); } .form { max-width: 500px; margin: 0 auto; } .form-group { margin-bottom: 20px; } label { display: block; color: #94a3b8; margin-bottom: 8px; font-size: 14px; } input, select, textarea { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: #fff; font-size: 16px; } .submit { width: 100%; padding: 15px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; } .features { max-width: 600px; margin: 40px auto; } .features li { padding: 12px 0; color: #94a3b8; list-style: none; } .features li:before { content: "✓"; color: #10b981; margin-right: 10px; } </style> </head> <body> <nav class="navbar"> <div class="container"> <div class="nav-content"> <a href="/" class="logo">FlowKit AI</a>
- <button class="hamburger" aria-label="Menu">
- <span></span>
- <span></span>
- <span></span>
- </button> </div> </div> </nav> <div class="overlay"></div> <div class="mobile-menu"> <a href="index.html">Home</a> <a href="browse.html">Browse</a> <a href="sell.html">Sell</a> <a href="free-tool.html">Free Tool</a> <a href="index.html#waitlist" style="display:block;margin-top:24px;padding:14px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;text-align:center;border-radius:10px;text-decoration:none;font-weight:600;">Join Waitlist</a> </div> <section class="hero"> <div class="container"> <h1>Keep 90% of Every Sale</h1> <p class="subtitle">FlowKit takes 10%. No monthly fees, no setup costs.</p> <div class="comparison"> <div class="comp"><div style="color:#64748b">PromptBase</div><div class="rate" style="color:#64748b">20%</div><p style="color:#64748b">You keep 80%</p></div> <div class="comp winner"><div style="color:#a78bfa">FlowKit AI</div><div class="rate" style="background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;color:transparent">10%</div><p style="color:#a78bfa">You keep 90%</p></div> <div class="comp"><div style="color:#64748b">Etsy</div><div class="rate" style="color:#64748b">13%</div><p style="color:#64748b">Plus fees</p></div> </div> <div class="features"> <ul> <li>Instant marketplace reach</li> <li>Automatic weekly payouts</li> <li>Featured placement for first 20 sellers</li> <li>Marketing support included</li> </ul> </div> </div> </section> <section class="form-section" id="apply"> <div class="container"> <div class="form"> <h2 style="text-align:center;margin-bottom:30px">Apply to Sell</h2> <form action="https://formsubmit.io/f/nlittle2016@gmail.com" method="POST"> <div class="form-group"> <label>Your Name</label> <input type="text" name="name" required placeholder="Jane Smith"> </div> <div class="form-group"> <label>Email</label> <input type="email" name="email" required placeholder="you@example.com"> </div> <div class="form-group"> <label>Workflow Title</label> <input type="text" name="title" required placeholder="30-Day Content System"> </div> <div class="form-group"> <label>Category</label> <select name="category" required> <option value="">Select...</option> <option value="marketing">Marketing</option> <option value="sales">Sales</option> <option value="creative">Creative</option> <option value="research">Research</option> </select> </div> <div class="form-group"> <label>Price ($50-500)</label> <input type="number" name="price" min="50" max="500" required placeholder="149"> </div> <div class="form-group"> <label>Description</label> <textarea name="description" rows="4" required placeholder="What does your workflow do?"></textarea> </div> <button type="submit" class="submit">Submit Application</button> </form> </div> </div> </section> <script> const hamburger = document.querySelector('.hamburger'); const mobileMenu = document.querySelector('.mobile-menu'); const overlay = document.querySelector('.overlay'); const menuLinks = document.querySelectorAll('.mobile-menu a'); function toggleMenu() { hamburger.classList.toggle('active'); mobileMenu.classList.toggle('active'); overlay.classList.toggle('active'); } hamburger.addEventListener('click', toggleMenu); overlay.addEventListener('click', toggleMenu); menuLinks.forEach(link => { link.addEventListener('click', toggleMenu); }); </script> </body> </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell Your Workflows — FlowKit AI</title>
+  <meta name="description" content="Sell AI workflows on FlowKit. Keep 90% of every sale. 10% commission.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0a0a0f; color: #fff; line-height: 1.6; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px; background: rgba(10,10,15,0.9); border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .nav-content { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 24px; font-weight: 800; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; color: transparent; text-decoration: none; }
+    .hamburger { cursor: pointer; background: none; border: none; padding: 8px; z-index: 1001; display: flex; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; transition: all 0.3s; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .mobile-menu { position: fixed; top: 0; right: -100%; width: 300px; height: 100vh; background: rgba(10,10,15,0.98); backdrop-filter: blur(20px); border-left: 1px solid rgba(255,255,255,0.1); z-index: 999; padding: 80px 24px 24px; transition: right 0.3s ease; }
+    .mobile-menu.active { right: 0; }
+    .mobile-menu a { display: block; color: #fff; text-decoration: none; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: 500; font-size: 16px; transition: color 0.2s; }
+    .mobile-menu a:hover { color: #a78bfa; }
+    .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 998; opacity: 0; visibility: hidden; transition: all 0.3s; }
+    .overlay.active { opacity: 1; visibility: visible; }
+    .hero { padding: 120px 0 60px; text-align: center; }
+    h1 { font-size: 48px; font-weight: 800; margin-bottom: 16px; }
+    .subtitle { color: #94a3b8; font-size: 18px; margin-bottom: 40px; }
+    .comparison { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; max-width: 800px; margin: 40px auto; }
+    .comp { padding: 30px; border-radius: 12px; background: rgba(255,255,255,0.03); text-align: center; }
+    .comp.winner { background: rgba(102,126,234,0.1); border: 1px solid #667eea; }
+    .rate { font-size: 36px; font-weight: 800; }
+    .form-section { padding: 60px 0; background: rgba(255,255,255,0.02); }
+    .form { max-width: 500px; margin: 0 auto; }
+    .btn { display: block; width: 100%; padding: 16px; background: linear-gradient(135deg,#667eea,#764ba2); color: #fff; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 16px; text-align: center; transition: all 0.3s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(102,126,234,0.4); }
+    .features { max-width: 600px; margin: 40px auto; }
+    .features li { padding: 12px 0; color: #94a3b8; list-style: none; }
+    .features li:before { content: "✓"; color: #10b981; margin-right: 10px; }
+    footer { padding: 40px; text-align: center; color: #64748b; border-top: 1px solid rgba(255,255,255,0.1); }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-content">
+        <a href="index.html" class="logo">FlowKit AI</a>
+        <button class="hamburger" aria-label="Menu" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="overlay" id="overlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="browse.html">Browse</a>
+    <a href="sell.html">Sell</a>
+    <a href="free-tool.html">Free Tool</a>
+    <a href="index.html#waitlist" style="display:block;margin-top:24px;padding:14px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;text-align:center;border-radius:10px;text-decoration:none;font-weight:600;">Join Waitlist</a>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Keep 90% of Every Sale</h1>
+      <p class="subtitle">FlowKit takes 10%. No monthly fees, no setup costs.</p>
+      <div class="comparison">
+        <div class="comp"><div style="color:#64748b">PromptBase</div><div class="rate" style="color:#64748b">20%</div><p style="color:#64748b">You keep 80%</p></div>
+        <div class="comp winner"><div style="color:#a78bfa">FlowKit AI</div><div class="rate" style="background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;color:transparent">10%</div><p style="color:#a78bfa">You keep 90%</p></div>
+        <div class="comp"><div style="color:#64748b">Etsy</div><div class="rate" style="color:#64748b">13%</div><p style="color:#64748b">Plus fees</p></div>
+      </div>
+      <div class="features">
+        <ul>
+          <li>Instant marketplace reach</li>
+          <li>Automatic weekly payouts</li>
+          <li>Featured placement for first 20 sellers</li>
+          <li>Marketing support included</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section" id="apply">
+    <div class="container">
+      <div class="form" style="text-align: center;">
+        <h2 style="margin-bottom: 16px;">Start Selling in Minutes</h2>
+        <p style="color: #94a3b8; margin-bottom: 32px;">Create your free seller account and upload your first workflow. No approval delays.</p>
+        <a href="signup.html" class="btn" style="margin-bottom: 16px;">Create Free Account</a>
+        <p style="color: #64748b; font-size: 14px;">Already have an account? <a href="dashboard.html" style="color: #a78bfa; text-decoration: none;">Go to Dashboard</a></p>
+        
+        <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1);">
+          <p style="color: #64748b; font-size: 14px; margin-bottom: 8px;">Questions? Email <a href="mailto:nlittle2016@gmail.com" style="color: #a78bfa;">nlittle2016@gmail.com</a></p>
+          <p style="color: #64748b; font-size: 12px;">Applications reviewed within 24 hours during business hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 FlowKit AI · Built with 💜 for AI creators</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('overlay');
+    const menuLinks = document.querySelectorAll('.mobile-menu a');
+    
+    function toggleMenu() {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      overlay.classList.toggle('active');
+    }
+    
+    hamburger.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+    menuLinks.forEach(link => link.addEventListener('click', toggleMenu));
+  </script>
+</body>
+</html>
