@@ -9,9 +9,79 @@
 .mobile-menu a { display: block; color: #fff; text-decoration: none; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: 500; font-size: 16px; transition: color 0.2s; }
 .mobile-menu a:hover { color: #a78bfa; }
 .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 998; opacity: 0; visibility: hidden; transition: all 0.3s; }
-.overlay.active { opacity: 1; visibility: visible; } .nav-link { color: #94a3b8; font-size: 14px; } .hero { padding: 140px 0 40px; } .badge { display: inline-block; padding: 8px 16px; background: rgba(102,126,234,0.1); border: 1px solid rgba(102,126,234,0.4); border-radius: 50px; font-size: 14px; color: #a78bfa; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; } h1 { font-size: 42px; font-weight: 800; margin-bottom: 16px; line-height: 1.2; } .subtitle { color: #94a3b8; font-size: 18px; margin-bottom: 30px; max-width: 600px; } .price { padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); margin: 30px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; } .price-tag { font-size: 48px; font-weight: 800; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; color: transparent; } .guarantee { color: #64748b; font-size: 14px; } .buy-btn { display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; text-decoration: none; border-radius: 10px; font-size: 18px; font-weight: 600; } .buy-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(102,126,234,0.4); } .section { padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1); } .section h2 { font-size: 24px; margin-bottom: 20px; } .features { list-style: none; } .features li { padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05); } .features li:last-child { border-bottom: none; } .features h3 { font-size: 16px; margin-bottom: 8px; color: #fff; } .features p { color: #94a3b8; font-size: 15px; } .deliverables { display: grid; gap: 12px; margin-top: 20px; } .item { display: flex; align-items: center; gap: 12px; color: #94a3b8; } .item:before { content: "📄"; } @media (max-width: 640px) { .price { flex-direction: column; align-items: flex-start; } } </style> </head> <body> <nav class="navbar"> <div class="container"> <div class="nav-content"> <a href="/" class="logo">FlowKit AI</a>
+.overlay.active { opacity: 1; visibility: visible; } .nav-link { color: #94a3b8; font-size: 14px; } .hero { padding: 140px 0 40px; } .badge { display: inline-block; padding: 8px 16px; background: rgba(102,126,234,0.1); border: 1px solid rgba(102,126,234,0.4); border-radius: 50px; font-size: 14px; color: #a78bfa; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; } h1 { font-size: 42px; font-weight: 800; margin-bottom: 16px; line-height: 1.2; } .subtitle { color: #94a3b8; font-size: 18px; margin-bottom: 30px; max-width: 600px; } .price { padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); margin: 30px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; } .price-tag { font-size: 48px; font-weight: 800; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; color: transparent; } .guarantee { color: #64748b; font-size: 14px; } .buy-btn { display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; text-decoration: none; border-radius: 10px; font-size: 18px; font-weight: 600; } .buy-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(102,126,234,0.4); } .section { padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1); } .section h2 { font-size: 24px; margin-bottom: 20px; } .features { list-style: none; } .features li { padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05); } .features li:last-child { border-bottom: none; } .features h3 { font-size: 16px; margin-bottom: 8px; color: #fff; } .features p { color: #94a3b8; font-size: 15px; } .deliverables { display: grid; gap: 12px; margin-top: 20px; } .item { display: flex; align-items: center; gap: 12px; color: #94a3b8; } .item:before { content: "📄"; }
+
+/* Preview Tease Styles */
+.preview-section { padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1); }
+.preview-container { position: relative; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 24px; margin-top: 20px; }
+.preview-content { font-family: 'SF Mono', 'Monaco', monospace; font-size: 14px; line-height: 1.8; color: #e2e8f0; white-space: pre-wrap; word-break: break-word; }
+.preview-visible { color: #e2e8f0; }
+.preview-blur { filter: blur(4px); opacity: 0.5; user-select: none; }
+.preview-blur * { filter: blur(4px); }
+.preview-overlay { position: absolute; bottom: 0; left: 0; right: 0; height: 60%; background: linear-gradient(transparent, rgba(10,10,15,0.95) 60%); display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 40px 24px 24px; border-radius: 0 0 16px 16px; }
+.preview-cta { text-align: center; }
+.preview-cta p { color: #94a3b8; font-size: 14px; margin-bottom: 16px; }
+.unlock-btn { display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; text-decoration: none; border-radius: 10px; font-size: 16px; font-weight: 600; box-shadow: 0 4px 20px rgba(102,126,234,0.4); transition: all 0.3s; }
+.unlock-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(102,126,234,0.5); }
+.preview-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); border-radius: 20px; font-size: 12px; color: #10b981; margin-bottom: 12px; }
+.preview-badge::before { content: "🔒"; }
+
+@media (max-width: 640px) { .price { flex-direction: column; align-items: flex-start; } }
+</style> </head> <body> <nav class="navbar"> <div class="container"> <div class="nav-content"> <a href="/" class="logo">FlowKit AI</a>
  <button class="hamburger" aria-label="Menu">
  <span></span>
  <span></span>
  <span></span>
- </button> </div> </div> </nav> <div class="overlay"></div> <div class="mobile-menu"> <a href="index.html">Home</a> <a href="browse.html">Browse</a> <a href="sell.html">Sell</a> <a href="free-tool.html">Free Tool</a> <a href="index.html#waitlist" style="display:block;margin-top:24px;padding:14px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;text-align:center;border-radius:10px;text-decoration:none;font-weight:600;">Join Waitlist</a> </div> <section class="hero"> <div class="container"> <div class="badge">AI Workflow System</div> <h1>30-Day Content Marketing System</h1> <p class="subtitle">Generate 30 days of blog posts, social content, and email sequences from a single topic. Complete system, not just prompts.</p> <div class="price"> <div> <div class="price-tag">$99</div> <div class="guarantee">One-time • 7-day guarantee</div> </div> <a href="#buy" class="buy-btn">Buy Now</a> </div> </div> </section> <section class="section"> <div class="container"> <h2>What You Get</h2> <ul class="features"> <li> <h3>30-Day Content Calendar</h3> <p>Complete day-by-day posting schedule with topics, angles, and formats for blog, LinkedIn, Twitter, and email.</p> </li> <li> <h3>10 Blog Post Outlines</h3> <p>SEO-optimized outlines with H1s, H2s, target keywords, and meta descriptions. Ready to expand into full posts.</p> </li> <li> <h3>30 Social Posts</h3> <p>Platform-specific content for LinkedIn, Twitter/X, and Instagram. Hooks, body copy, and CTAs included.</p> </li> <li> <h3>5 Email Newsletters</h3> <p>Complete email drafts with subject lines, preview text, and calls-to-action.</p> </li> <li> <h3>Visual Briefs</h3> <p>Image specs, color palettes, and design directions for every piece of content.</p> </li> </ul> </div> </section> <section class="section"> <div class="container"> <h2>Deliverables</h2> <div class="deliverables"> <div class="item">Content Marketing System — System Prompt (copy/paste)</div> <div class="item">Setup Guide — Step-by-step implementation</div> <div class="item">Example Outputs — Sample calendars and posts</div> <div class="item">Configuration Files — Ready to customize</div> <div class="item">Notion Template — Optional calendar tracking</div> </div> </div> </section> <section class="section" id="buy"> <div class="container"> <h2>Your Purchase</h2> <div class="price" style="border-top: none; border-bottom: none; padding: 30px 0 0;"> <div> <div class="price-tag">$99</div> <div class="guarantee">Instant delivery • PDF + prompts</div> </div> <!-- LEMON SQUEEZY BUTTON PLACEHOLDER --> <a href="https://flowkit.lemonsqueezy.com/checkout/buy/YOUR_PRODUCT_ID" class="buy-btn">Buy Now</a> </div> </div> </section> <script> const hamburger = document.querySelector('.hamburger'); const mobileMenu = document.querySelector('.mobile-menu'); const overlay = document.querySelector('.overlay'); const menuLinks = document.querySelectorAll('.mobile-menu a'); function toggleMenu() { hamburger.classList.toggle('active'); mobileMenu.classList.toggle('active'); overlay.classList.toggle('active'); } hamburger.addEventListener('click', toggleMenu); overlay.addEventListener('click', toggleMenu); menuLinks.forEach(link => { link.addEventListener('click', toggleMenu); }); </script> </body> </html>
+ </button> </div> </div> </nav> <div class="overlay"></div> <div class="mobile-menu"> <a href="index.html">Home</a> <a href="browse.html">Browse</a> <a href="sell.html">Sell</a> <a href="free-tool.html">Free Tool</a> <a href="index.html#waitlist" style="display:block;margin-top:24px;padding:14px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;text-align:center;border-radius:10px;text-decoration:none;font-weight:600;">Join Waitlist</a> </div> <section class="hero"> <div class="container"> <div class="badge">AI Workflow System</div> <h1>30-Day Content Marketing System</h1> <p class="subtitle">Generate 30 days of blog posts, social content, and email sequences from a single topic. Complete system, not just prompts.</p> <div class="price"> <div> <div class="price-tag">$99</div> <div class="guarantee">One-time • 7-day guarantee</div> </div> <a href="#buy" class="buy-btn">Buy Now</a> </div> </div> </section>
+
+<!-- PREVIEW TEASE SECTION -->
+<section class="preview-section">
+<div class="container">
+<div class="preview-badge">Preview — Unlock for Full Workflow</div>
+<h2>See What's Inside</h2>
+<div class="preview-container">
+<div class="preview-content">
+<div class="preview-visible">"You are an AI-powered Content Marketing System. Your task is to transform a single business topic into a complete 30-day content calendar including blog posts, social media content, and email sequences...</div>
+<div class="preview-blur">SPRÏNGBO0ARD_SYSTEM_V2.0_INIT...
+
+STEP 1: AUDIENCE ANALYSIS
+[Deep personality matrix generation activated]
+→ Target demographic: {{$USER_INPUT}}
+→ Pain point extraction: Algorithm scanning...
+→ Voice calibration: {{TONE_SELECTION}}
+
+STEP 2: CONTENT PILLAR GENERATION
+[30-day strategic architecture building]
+→ Week 1: Authority positioning content
+→ Week 2: Educational value series
+→ Week 3: Social proof and case studies
+→ Week 4: Conversion-focused sequences
+
+[CONTENT BLOCKS RENDERING]
+
+{"output_type": "multi_channel_calendar"}
+{"platforms": ["blog", "linkedin", "twitter", "email"]}
+{"seo_optimized": true}
+{"cta_integrated": true}
+
+STEP 3: SPECIFIC DELIVERABLES
+→ 10 complete blog post outlines
+→ 30 social media posts with hooks
+→ 5 email newsletter drafts
+→ Visual content briefs
+→ Distribution schedule
+
+[EXECUTION PROTOCOLS]
+...and 15 more steps not shown</div>
+</div>
+<div class="preview-overlay">
+<div class="preview-cta">
+<p>Unlock the complete {{500}}+ word system prompt</p>
+<a href="#buy" class="unlock-btn">Unlock for $99</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section"> <div class="container"> <h2>What You Get</h2> <ul class="features"> <li> <h3>30-Day Content Calendar</h3> <p>Complete day-by-day posting schedule with topics, angles, and formats for blog, LinkedIn, Twitter, and email.</p> </li> <li> <h3>10 Blog Post Outlines</h3> <p>SEO-optimized outlines with H1s, H2s, target keywords, and meta descriptions. Ready to expand into full posts.</p> </li> <li> <h3>30 Social Posts</h3> <p>Platform-specific content for LinkedIn, Twitter/X, and Instagram. Hooks, body copy, and CTAs included.</p> </li> <li> <h3>5 Email Newsletters</h3> <p>Complete email drafts with subject lines, preview text, and calls-to-action.</p> </li> <li> <h3>Visual Briefs</h3> <p>Image specs, color palettes, and design directions for every piece of content.</p> </li> </ul> </div> </section> <section class="section"> <div class="container"> <h2>Deliverables</h2> <div class="deliverables"> <div class="item">Content Marketing System — System Prompt (copy/paste)</div> <div class="item">Setup Guide — Step-by-step implementation</div> <div class="item">Example Outputs — Sample calendars and posts</div> <div class="item">Configuration Files — Ready to customize</div> <div class="item">Notion Template — Optional calendar tracking</div> </div> </div> </section> <section class="section" id="buy"> <div class="container"> <h2>Your Purchase</h2> <div class="price" style="border-top: none; border-bottom: none; padding: 30px 0 0;"> <div> <div class="price-tag">$99</div> <div class="guarantee">Instant delivery • PDF + prompts</div> </div> <!-- LEMON SQUEEZY BUTTON PLACEHOLDER --> <a href="https://flowkit.lemonsqueezy.com/checkout/buy/YOUR_PRODUCT_ID" class="buy-btn">Buy Now</a> </div> </div> </section> <script> const hamburger = document.querySelector('.hamburger'); const mobileMenu = document.querySelector('.mobile-menu'); const overlay = document.querySelector('.overlay'); const menuLinks = document.querySelectorAll('.mobile-menu a'); function toggleMenu() { hamburger.classList.toggle('active'); mobileMenu.classList.toggle('active'); overlay.classList.toggle('active'); } hamburger.addEventListener('click', toggleMenu); overlay.addEventListener('click', toggleMenu); menuLinks.forEach(link => { link.addEventListener('click', toggleMenu); }); </script> </body> </html>
