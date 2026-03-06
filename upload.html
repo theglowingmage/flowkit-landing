@@ -3,43 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Upload Workflow - FlowKit AI</title>
+<title>Upload - FlowKit AI</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;background:#0a0a0f;color:#fff;line-height:1.6}
-.mobile-nav{display:none;position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 24px;background:rgba(10,10,15,0.95);border-bottom:1px solid rgba(255,255,255,0.1)}
+.mobile-nav{display:none;position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 24px;background:rgba(10,10,15,0.95)}
 .hamburger{cursor:pointer;background:none;border:none;padding:8px;display:flex;flex-direction:column;gap:5px}
 .hamburger span{display:block;width:24px;height:2px;background:#fff}
 .logo{font-size:24px;font-weight:800;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
 .mobile-menu{position:fixed;top:0;right:-100%;width:300px;height:100vh;background:rgba(10,10,15,0.98);z-index:999;padding:80px 20px 20px;transition:right 0.3s}
-.mobile-menu.active{right:0}
-.mobile-menu a{display:block;color:#fff;text-decoration:none;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.1)}
-.mobile-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:998;opacity:0;visibility:hidden;transition:all 0.3s}
-.mobile-overlay.active{opacity:1;visibility:visible}
-.sidebar{width:260px;background:rgba(15,15,25,0.95);border-right:1px solid rgba(255,255,255,0.05);padding:24px;position:fixed;height:100vh}
+.sidebar{width:260px;background:rgba(15,15,25,0.95);padding:24px;position:fixed;height:100vh}
 .main-content{margin-left:260px;padding:40px;min-height:100vh}
 h1{font-size:28px;font-weight:700}
-.subtitle{color:#94a3b8;margin:8px 0 32px}
 .form-grid{display:grid;grid-template-columns:2fr 1fr;gap:40px}
 .form-group{margin-bottom:24px}
 label{display:block;margin-bottom:8px;font-weight:500;font-size:14px}
 input,select,textarea{width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#fff;font-size:15px}
 textarea{min-height:140px;resize:vertical}
-.file-zone{border:2px dashed rgba(102,126,234,0.3);border-radius:12px;padding:40px;text-align:center;cursor:pointer}
-.file-zone:hover{border-color:#667eea}
-.file-zone input{display:none}
+select option{background:#0a0a0f}
 .btn{padding:14px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:10px;font-weight:600;cursor:pointer}
-.btn-secondary{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.2);margin-left:12px}
 .preview-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;position:sticky;top:40px}
 .preview-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px}
-.preview-card h4{font-size:18px;margin:12px 0 8px}
-.preview-card p{color:#94a3b8;font-size:14px}
-.message{padding:16px;border-radius:10px;margin-bottom:24px;display:none}
-.message.error{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);color:#ef4444}
-.message.success{background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);color:#10b981}
-.nav-item{display:block;padding:12px 16px;color:#94a3b8;text-decoration:none;border-radius:10px;margin-bottom:4px}
-.nav-item.active{background:rgba(102,126,234,0.1);color:#fff}
+.preview-card h4{font-size:18px;margin:12px 0}
+.platform-tag{background:rgba(16,185,129,0.2);color:#10b981;padding:4px 10px;border-radius:6px;font-size:11px}
 @media(max-width:768px){.sidebar{display:none}.mobile-nav{display:flex;justify-content:space-between;align-items:center}.main-content{margin-left:0;padding:80px 20px 40px}.form-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -48,225 +35,113 @@ textarea{min-height:140px;resize:vertical}
 <a href="index.html" class="logo">FlowKit AI</a>
 <button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button>
 </nav>
-<div class="mobile-overlay" id="overlay"></div>
-<div class="mobile-menu" id="mobileMenu">
-<a href="index.html">Home</a>
-<a href="browse.html">Browse</a>
-<a href="dashboard.html">Dashboard</a>
-<a href="upload.html">Upload</a>
-</div>
 
 <aside class="sidebar">
 <a href="index.html" style="font-size:24px;font-weight:800;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;display:block;margin-bottom:40px">FlowKit AI</a>
-<a href="dashboard.html" class="nav-item">Dashboard</a>
-<a href="upload.html" class="nav-item active">Upload</a>
-<a href="#" class="nav-item">My Workflows</a>
-<a href="#" class="nav-item">Sales</a>
-</div>
+<a href="dashboard.html" style="display:block;padding:12px 16px;color:#94a3b8;text-decoration:none">Dashboard</a>
+<a href="upload.html" style="display:block;padding:12px 16px;color:#fff;text-decoration:none;background:rgba(102,126,234,0.1);border-radius:10px">Upload</a>
 </aside>
 
 <main class="main-content">
 <h1>Upload Workflow</h1>
-<p class="subtitle">List your AI workflow for sale. You keep 90% of every sale.</p>
-
-<div id="error" class="message error"></div>
-<div id="success" class="message success"></div>
+<p style="color:#94a3b8;margin:8px 0 32px">List your AI workflow or prompt for sale</p>
 
 <div class="form-grid">
 <form id="uploadForm">
 <div class="form-group">
-<label>Workflow Title <span style="color:#667eea">*</span></label>
-<input type="text" id="title" placeholder="e.g., Content Marketing System" required maxlength="100">
+<label>Workflow Title</label>
+<input type="text" id="title" placeholder="e.g., Viral Tweet Generator" required>
 </div>
 
 <div class="form-group">
-<label>Category <span style="color:#667eea">*</span></label>
+<label>Platform *NEW!*</label>
+<select id="platform" required>
+<option value="">Select AI Platform...</option>
+<option value="chatgpt">ChatGPT / OpenAI</option>
+<option value="claude">Claude / Anthropic</option>
+<option value="gemini">Google Gemini</option>
+<option value="midjourney">Midjourney</option>
+<option value="dalle">DALL-E</option>
+<option value="cursor">Cursor</option>
+<option value="perplexity">Perplexity</option>
+<option value="stable-diffusion">Stable Diffusion</option>
+<option value="grok">Grok / xAI</option>
+<option value="universal">Universal / Works on All</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Category *NEW!*</label>
 <select id="category" required>
 <option value="">Select category...</option>
-<option value="marketing">Marketing</option>
-<option value="sales">Sales</option>
-<option value="creative">Creative</option>
-<option value="research">Research</option>
+<option value="content">Content Creation</option>
+<option value="social">Social Media</option>
+<option value="seo">SEO & Marketing</option>
+<option value="email">Email Marketing</option>
+<option value="ads">Advertising</option>
+<option value="code">Programming</option>
+<option value="data">Data Analysis</option>
 <option value="automation">Automation</option>
+<option value="design">Design & Creative</option>
+<option value="writing">Writing & Copy</option>
+<option value="research">Research</option>
 <option value="productivity">Productivity</option>
 </select>
 </div>
 
 <div class="form-group">
-<label>Price (USD) <span style="color:#667eea">*</span></label>
-<div class="price-wrap">
+<label>Price (USD)</label>
 <input type="number" id="price" min="5" max="500" placeholder="29" required>
-</div>
-<p class="earnings-hint">You earn: <strong id="earn" style="color:#10b981">$0</strong> (90% after 10% fee)</p>
-</div>
-
-<div class="form-group">
-<label>Description <span style="color:#667eea">*</span></label>
-<textarea id="desc" placeholder="What does your workflow do? Who is it for?" required maxlength="1000"></textarea>
-</div>
-
-<div class="form-group">
-<label>Tags</label>
-<input type="text" id="tags" placeholder="AI, marketing, automation, scripts">
-<p class="tags-hint">Separate tags with commas. Max 5 tags.</p>
-</div>
-
-<div class="form-group">
-<label>Workflow File <span style="color:#667eea">*</span></label>
-<div class="file-zone" id="dropZone">
-<input type="file" id="fileInput" accept=".pdf,.txt,.md,.zip,.json" required>
-<div class="file-zone-icon">📎</div>
-<div class="file-zone-text">Drag & drop or <strong>click to upload</strong></div>
-<div class="file-zone-hint">PDF, TXT, MD, ZIP, or JSON</div>
-</div>
-</div>
-
-<button type="submit" class="btn">Publish Workflow</button>
-<button type="button" class="btn btn-secondary" id="saveDraft">Save Draft</button>
-</form>
-
-<div class="preview-box">
-<p class="preview-label">Live Preview</p>
-<div class="preview-card">
-<span class="cat" id="pCat">Category</span>
-<h4 id="pTitle">Your Title</h4>
-<p id="pDesc">Description preview...</p>
-<p class="price" id="pPrice">$0</p>
-</div>
-</div>
-</div>
-</main>
-
-<script>
-const menuBtn=document.getElementById('menuBtn');
-const overlay=document.getElementById('mobileOverlay');
-const menu=document.getElementById('mobileMenu');
-
-menuBtn.addEventListener('click',()=>{
-menu.classList.toggle('active');
-overlay.classList.toggle('active');
-});
-
-overlay.addEventListener('click',()=>{
-menu.classList.remove('active');
-overlay.classList.remove('active');
-});
-
-const title=document.getElementById('title');
-const cat=document.getElementById('category');
-const price=document.getElementById('price');
-const desc=document.getElementById('desc');
-
-function update(){
-document.getElementById('pTitle').textContent=title.value||'Your Title';
-document.getElementById('pDesc').textContent=desc.value||'Description preview...';
-document.getElementById('pCat').textContent=cat.value||'Category';
-document.getElementById('pPrice').textContent='$'+(price.value||'0');
-const p=parseInt(price.value)||0;
-document.getElementById('earn').textContent='$'+Math.floor(p*0.9);
-}
-
-[title,cat,price,desc].forEach(el=>el.addEventListener('input',update));
-
-update();
-</script>
-</body>
-</html>
-<a href="upload.html" class="nav-item active">Upload</a>
-</aside>
-
-<main class="main-content">
-<h1>Upload Workflow</h1>
-<p class="subtitle">List your AI workflow for sale</p>
-
-<div id="error" class="message error"></div>
-<div id="success" class="message success"></div>
-
-<div class="form-grid">
-<form id="uploadForm">
-<div class="form-group">
-<label>Title</label>
-<input type="text" id="title" placeholder="e.g., Content Marketing System" required>
-</div>
-
-<div class="form-group">
-<label>Category</label>
-<select id="category" required>
-<option value="">Select category</option>
-<option value="marketing">Marketing</option>
-<option value="sales">Sales</option>
-<option value="creative">Creative</option>
-<option value="automation">Automation</option>
-</select>
-</div>
-
-<div class="form-group">
-<label>Price ($)</label>
-<input type="number" id="price" min="5" max="500" placeholder="29" required>
-<p style="color:#64748b;font-size:13px;margin-top:8px">You earn: <strong id="earn" style="color:#10b981">$0</strong></p>
+<p style="color:#64748b;font-size:13px;margin-top:8px">You keep 90%: <strong id="earn" style="color:#10b981">$0</strong></p>
 </div>
 
 <div class="form-group">
 <label>Description</label>
-<textarea id="desc" placeholder="Describe your workflow..." required></textarea>
-</div>
-
-<div class="form-group">
-<label>File</label>
-<div class="file-zone" id="dropZone">
-<input type="file" id="fileInput" accept=".pdf,.zip,.txt">
-<p>Drag file here or click to upload</p>
-<p id="fileName" style="color:#10b981;margin-top:8px"></p>
-</div>
+<textarea id="desc" placeholder="What does your workflow do? What results can buyers expect?" required></textarea>
 </div>
 
 <div class="form-group">
 <label>Tags (comma separated)</label>
-<input type="text" id="tags" placeholder="AI, marketing, automation">
+<input type="text" id="tags" placeholder="AI, twitter, viral, marketing">
+</div>
+
+<div class="form-group">
+<label>What You'll Get</label>
+<textarea id="deliverables" placeholder="List exactly what the buyer receives..." required></textarea>
 </div>
 
 <button type="submit" class="btn">Publish Workflow</button>
-<button type="button" class="btn btn-secondary" id="draftBtn">Save Draft</button>
 </form>
 
 <div class="preview-box">
 <p style="color:#64748b;font-size:12px;text-transform:uppercase;margin-bottom:16px">Live Preview</p>
 <div class="preview-card">
-<span id="pCat" style="background:rgba(102,126,234,0.2);color:#a78bfa;padding:4px 10px;border-radius:6px;font-size:11px">Category</span>
+<span class="platform-tag" id="pPlatform">Platform</span>
 <h4 id="pTitle">Your Title</h4>
-<p id="pDesc">Description preview...</p>
-<p id="pPrice" style="font-size:24px;font-weight:700;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent">$0</p>
+<p style="color:#94a3b8;margin:8px 0"><strong>Category:</strong> <span id="pCat">-</span></p>
+<p style="color:#94a3b8;margin:8px 0"><strong>Price:</strong> $<span id="pPrice">0</span></p>
 </div>
 </div>
 </div>
 </main>
 
 <script>
-const menuBtn=document.getElementById('menuBtn');
-const mobileMenu=document.getElementById('mobileMenu');
-const overlay=document.getElementById('overlay');
-
-menuBtn.addEventListener('click',()=>{
-mobileMenu.classList.toggle('active');
-overlay.classList.toggle('active');
-});
-overlay.addEventListener('click',()=>{
-mobileMenu.classList.remove('active');
-overlay.classList.remove('active');
-});
-
 const title=document.getElementById('title');
+const platform=document.getElementById('platform');
 const category=document.getElementById('category');
 const price=document.getElementById('price');
-const desc=document.getElementById('desc');
-const earn=document.getElementById('earn');
 
-function updatePreview(){
+function update(){
 document.getElementById('pTitle').textContent=title.value||'Your Title';
-document.getElementById('pDesc').textContent=desc.value||'Description preview...';
-document.getElementById('pCat').textContent=category.value||'Category';
-document.getElementById('pPrice').textContent='$'+(price.value||0);
-earn.textContent='$'+Math.floor((price.value||0)*0.9);
+document.getElementById('pPlatform').textContent=platform.options[platform.selectedIndex]?.text||'Platform';
+document.getElementById('pCat').textContent=category.options[category.selectedIndex]?.text||'-';
+document.getElementById('pPrice').textContent=price.value||'0';
+const p=parseInt(price.value)||0;
+document.getElementById('earn').textContent='$'+Math.floor(p*0.9);
 }
 
-[title,category,price,desc
+[title,platform,category,price].forEach(el=>el.addEventListener('input',update));
+update();
+</script>
+</body>
+</html>
