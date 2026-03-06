@@ -12,7 +12,7 @@ body{font-family:'Inter',sans-serif;background:#0a0a0f;color:#fff;line-height:1.
 .hamburger{cursor:pointer;background:none;border:none;padding:8px;display:flex;flex-direction:column;gap:5px}
 .hamburger span{display:block;width:24px;height:2px;background:#fff}
 .logo{font-size:24px;font-weight:800;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
-.mobile-menu{position:fixed;top:0;right:-100%;width:300px;height:100vh;background:rgba(10,10,15,0.98);z-index:999;padding:80px 20px 20px;transition:right .3s}
+.mobile-menu{position:fixed;top:0;right:-100%;width:300px;height:100vh;background:rgba(10,10,15,0.98);z-index:999;padding:80px 20px 20px;transition:right 0.3s}
 .sidebar{width:260px;background:rgba(15,15,25,0.95);padding:24px;position:fixed;height:100vh}
 .main-content{margin-left:260px;padding:40px;min-height:100vh}
 h1{font-size:28px;font-weight:700}
@@ -23,16 +23,10 @@ input,select,textarea{width:100%;padding:12px 16px;background:rgba(255,255,255,0
 textarea{min-height:140px;resize:vertical}
 select option{background:#0a0a0f}
 .btn{padding:14px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:10px;font-weight:600;cursor:pointer}
-.btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(102,126,234,0.4)}
 .preview-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;position:sticky;top:40px}
-.image-preview-thumb{width:80px;height:80px;object-fit:cover;border-radius:8px;border:2px solid rgba(102,126,234,0.5)}
-.image-preview-box{display:flex;flex-direction:column;align-items:center;gap:6px}
-.image-preview-label{font-size:10px;color:#64748b;text-transform:uppercase}
 .preview-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px}
 .preview-card h4{font-size:18px;margin:12px 0}
 .platform-tag{background:rgba(16,185,129,0.2);color:#10b981;padding:4px 10px;border-radius:6px;font-size:11px}
-.file-upload{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;border:2px dashed rgba(255,255,255,0.2);border-radius:12px;background:rgba(255,255,255,0.02);cursor:pointer;transition:all .3s}
-.file-upload:hover{border-color:rgba(102,126,234,0.5);background:rgba(102,126,234,0.05)}
 @media(max-width:768px){.sidebar{display:none}.mobile-nav{display:flex;justify-content:space-between;align-items:center}.main-content{margin-left:0;padding:80px 20px 40px}.form-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -41,20 +35,24 @@ select option{background:#0a0a0f}
 <a href="index.html" class="logo">FlowKit AI</a>
 <button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button>
 </nav>
+
 <aside class="sidebar">
 <a href="index.html" style="font-size:24px;font-weight:800;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;display:block;margin-bottom:40px">FlowKit AI</a>
 <a href="dashboard.html" style="display:block;padding:12px 16px;color:#94a3b8;text-decoration:none">Dashboard</a>
 <a href="upload.html" style="display:block;padding:12px 16px;color:#fff;text-decoration:none;background:rgba(102,126,234,0.1);border-radius:10px">Upload</a>
 </aside>
+
 <main class="main-content">
 <h1>Upload Workflow</h1>
 <p style="color:#94a3b8;margin:8px 0 32px">List your AI workflow or prompt for sale</p>
+
 <div class="form-grid">
 <form id="uploadForm">
 <div class="form-group">
 <label>Workflow Title</label>
 <input type="text" id="title" placeholder="e.g., Viral Tweet Generator" required>
 </div>
+
 <div class="form-group">
 <label>Platform *NEW!*</label>
 <select id="platform" required>
@@ -71,6 +69,7 @@ select option{background:#0a0a0f}
 <option value="universal">Universal / Works on All</option>
 </select>
 </div>
+
 <div class="form-group">
 <label>Category *NEW!*</label>
 <select id="category" required>
@@ -89,39 +88,31 @@ select option{background:#0a0a0f}
 <option value="productivity">Productivity</option>
 </select>
 </div>
+
 <div class="form-group">
 <label>Price (USD)</label>
 <input type="number" id="price" min="5" max="500" placeholder="29" required>
 <p style="color:#64748b;font-size:13px;margin-top:8px">You keep 90%: <strong id="earn" style="color:#10b981">$0</strong></p>
 </div>
+
 <div class="form-group">
 <label>Description</label>
 <textarea id="desc" placeholder="What does your workflow do? What results can buyers expect?" required></textarea>
 </div>
+
 <div class="form-group">
 <label>Tags (comma separated)</label>
 <input type="text" id="tags" placeholder="AI, twitter, viral, marketing">
 </div>
+
 <div class="form-group">
 <label>What You'll Get</label>
 <textarea id="deliverables" placeholder="List exactly what the buyer receives..." required></textarea>
 </div>
-<div class="form-group">
-<label>Workflow Content</label>
-<textarea id="content" placeholder="Paste your full workflow, prompts, instructions here..." style="min-height:200px" required></textarea>
-</div>
-<div class="form-group">
-<label>Example Output Images</label>
-<input type="file" id="exampleImages" accept="image/*" multiple style="display:none">
-<div class="file-upload" onclick="document.getElementById('exampleImages').click()">
-<div style="font-size:32px;margin-bottom:12px;opacity:0.5">📸</div>
-<p style="color:#94a3b8;font-size:14px">Click to upload screenshots</p>
-<p style="color:#64748b;font-size:12px;margin-top:4px">Before/after images showing workflow results (max 4)</p>
-</div>
-<div id="imagePreviewContainer" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px"></div>
-</div>
+
 <button type="submit" class="btn">Publish Workflow</button>
 </form>
+
 <div class="preview-box">
 <p style="color:#64748b;font-size:12px;text-transform:uppercase;margin-bottom:16px">Live Preview</p>
 <div class="preview-card">
@@ -129,21 +120,16 @@ select option{background:#0a0a0f}
 <h4 id="pTitle">Your Title</h4>
 <p style="color:#94a3b8;margin:8px 0"><strong>Category:</strong> <span id="pCat">-</span></p>
 <p style="color:#94a3b8;margin:8px 0"><strong>Price:</strong> $<span id="pPrice">0</span></p>
-<div id="pImagePreview" style="display:none;margin-top:16px">
-<p style="color:#64748b;font-size:11px;text-transform:uppercase;margin-bottom:8px">Example Output</p>
-<img id="pImage" style="width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.1);">
-</div>
 </div>
 </div>
 </div>
 </main>
+
 <script>
 const title=document.getElementById('title');
 const platform=document.getElementById('platform');
 const category=document.getElementById('category');
 const price=document.getElementById('price');
-const exampleImages=document.getElementById('exampleImages');
-const imagePreviewContainer=document.getElementById('imagePreviewContainer');
 
 function update(){
 document.getElementById('pTitle').textContent=title.value||'Your Title';
@@ -153,25 +139,6 @@ document.getElementById('pPrice').textContent=price.value||'0';
 const p=parseInt(price.value)||0;
 document.getElementById('earn').textContent='$'+Math.floor(p*0.9);
 }
-
-exampleImages.addEventListener('change',function(e){
-imagePreviewContainer.innerHTML='';
-const files=Array.from(e.target.files).slice(0,4);
-files.forEach((file,i)=>{
-const reader=new FileReader();
-reader.onload=function(e){
-const div=document.createElement('div');
-div.className='image-preview-box';
-div.innerHTML='<img src="'+e.target.result+'" class="image-preview-thumb"><span class="image-preview-label">'+(i===0?'BEFORE':'AFTER '+i)+'</span>';
-imagePreviewContainer.appendChild(div);
-if(i===0){
-document.getElementById('pImage').src=e.target.result;
-document.getElementById('pImagePreview').style.display='block';
-}
-};
-reader.readAsDataURL(file);
-});
-});
 
 [title,platform,category,price].forEach(el=>el.addEventListener('input',update));
 update();

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Workflow — FlowKit AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0a0a0f; color: #fff; line-height: 1.6; }
+    
+    /* Navigation */
+    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 16px 24px; background: rgba(10,10,15,0.95); border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .logo { font-size: 24px; font-weight: 800; background: linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+    .hamburger { cursor: pointer; background: none; border: none; padding: 8px; display: flex; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; }
+    .mobile-menu { position: fixed; top: 0; right: -100%; width: 300px; height: 100vh; background: rgba(10,10,15,0.98); z-index: 999; padding: 80px 20px 20px; transition: right 0.3s ease; }
+    .mobile-menu.active { right: 0; }
+    .mobile-menu a { display: block; color: #fff; text-decoration: none; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .mobile-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 998; opacity: 0; visibility: hidden; transition: all 0.3s; }
+    .mobile-overlay.active { opacity: 1; visibility: visible; }
+    
+    .sidebar { width: 260px; background: rgba(15,15,25,0.95); border-right: 1px solid rgba(255,255,255,0.05); padding: 24px; position: fixed; height: 100vh; z-index: 100; }
+    .sidebar-logo { font-size: 24px; font-weight: 800; background: linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 40px; display: block; text-decoration: none; }
+    .nav-section { margin-bottom: 32px; }
+    .nav-label { font-size: 11px; text-transform: uppercase; color: #64748b; margin-bottom: 12px; }
+    .nav-item { display: block; padding: 12px 16px; color: #94a3b8; text-decoration: none; border-radius: 10px; margin-bottom: 4px; }
+    .nav-item:hover, .nav-item.active { background: rgba(102,126,234,0.1); color: #fff; }
+    
+    .main-content { margin-left: 260px; padding: 40px; min-height: 100vh; }
+    h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .subtitle { color: #94a3b8; margin-bottom: 32px; }
+    .form-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
+    .form-group { margin-bottom: 24px; }
+    label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 14px; }
+    label span { color: #64748b; }
+    input, select, textarea { width: 100%; padding: 12px 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #fff; font-size: 15px; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: #667eea; }
+    textarea { min-height: 140px; resize: vertical; }
+    
+    .price-wrap { position: relative; max-width: 180px; }
+    .price-wrap::before { content: '$'; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #64748b; }
+    .price-wrap input { padding-left: 40px; }
+    
+    .file-zone { border: 2px dashed rgba(102,126,234,0.3); border-radius: 12px; padding: 40px; text-align: center; cursor: pointer; transition: all 0.3s; }
+    .file-zone:hover, .file-zone.drag-over { border-color: #667eea; background: rgba(102,126,234,0.05); }
+    .file-zone input { display: none; }
+    .file-zone-icon { font-size: 40px; margin-bottom: 12px; }
+    .file-selected { background: rgba(16,185,129,0.1); border: 1px solid #10b981; border-radius: 10px; padding: 16px; display: flex; align-items: center; gap: 16px; margin-top: 16px; }
+    .file-selected.hidden { display: none; }
+    
+    .tags-input { display: flex; flex-wrap: wrap; gap: 8px; padding: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; min-height: 52px; }
+    .tag { background: rgba(102,126,234,0.2); color: #a78bfa; padding: 4px 12px; border-radius: 20px; font-size: 13px; }
+    .tags-input input { flex: 1; min-width: 80px; border: none; background: transparent; padding: 8px; outline: none; }
+    
+    .btn { padding: 14px 28px; background: linear-gradient(135deg,#667eea,#764ba2); color: #fff; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; }
+    .btn-secondary { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); }
+    .preview-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 24px; position: sticky; top: 40px; }
+    .preview-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; }
+    .preview-card .cat { background: rgba(102,126,234,0.2); color: #a78bfa; padding: 4px 10px; border-radius: 6px; font-size: 11px; text-transform: uppercase; }
+    .preview-card h4 { font-size: 18px; font-weight: 600; margin: 12px 0 8px; }
+    .preview-card p { color: #94a3b8; font-size: 14px; margin-bottom: 12px; }
+    .preview-card .price { font-size: 24px; font-weight: 700; background: linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    
+    .message { padding: 16px; border-radius: 10px; margin-bottom: 24px; display: none; }
+    .message.error { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #ef4444; display: block; }
+    .message.success { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: #10b981; display: block; }
+    
+    @media (max-width: 768px) { 
+      .sidebar { display: none; } 
+      .mobile-nav { display: flex; justify-content: space-between; align-items: center; } 
+      .main-content { margin-left: 0; padding: 80px 20px 40px; } 
+      .form-grid { grid-template-columns: 1fr; } 
+    }
+    .hint { font-size: 13px; color: #64748b; margin-top: 8px; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <nav class="mobile-nav">
+    <a href="index.html" class="logo">FlowKit AI</a>
+    <button class="hamburger" id="menuToggle"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="browse.html">Browse</a>
+    <a href="sell.html">Sell</a>
+    <a href="free-tool.html">Free Tool</a>
+    <div style="border-top: 1px solid rgba(255,255,255,0.1); margin: 16px 0; padding-top: 16px;">
+      <div style="color:#64748b;font-size:11px;text-transform:uppercase;margin-bottom:12px;">Seller</div>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="upload.html">Upload Workflow</a>
+      <a href="#">My Workflows</a>
+      <a href="#">Sales</a>
+    </div>
+  </div>
+  
+  <aside class="sidebar">
+    <a href="index.html" class="sidebar-logo">FlowKit AI</a>
+    <div class="nav-section">
+      <div class="nav-label">Seller</div>
+      <a href="dashboard.html" class="nav-item">Dashboard</a>
+      <a href="upload.html" class="nav-item active">Upload</a>
+      <a href="#" class="nav-item">My Workflows</a>
+      <a href="#" class="nav-item">Sales</a>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <h1>Upload Workflow</h1>
+    <p class="subtitle">List your AI workflow for sale</p>
+    
+    <div id="errorMessage" class="message error hidden"></div>
+    <div id="

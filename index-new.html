@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlowKit AI - AI Workflow Marketplace</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0a0a0f;color:#fff;line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 24px;background:rgba(10,10,15,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.1)}
+.nav-content{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:24px;font-weight:800;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{color:#94a3b8;text-decoration:none;font-size:15px}
+.nav-links a:hover{color:#fff}
+.hero{padding:140px 24px 80px;text-align:center;max-width:800px;margin:0 auto}
+.hero h1{font-size:48px;font-weight:800;line-height:1.1;margin-bottom:24px}
+.hero p{font-size:20px;color:#94a3b8;max-width:600px;margin:0 auto 40px}
+.search-box{max-width:600px;margin:0 auto 60px}
+.search-box input{width:100%;padding:16px 24px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;color:#fff;font-size:16px}
+.btn-primary{padding:14px 32px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:10px;font-weight:600;cursor:pointer;font-size:16px}
+.btn-secondary{padding:14px 32px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.2);color:#fff;border-radius:10px;font-weight:600;cursor:pointer;margin-left:12px}
+.section{padding:60px 24px;max-width:1200px;margin:0 auto}
+.section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px}
+.section h2{font-size:28px;font-weight:700}
+.view-all{color:#667eea;text-decoration:none;font-weight:500}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;transition:all 0.3s;cursor:pointer}
+.card:hover{border-color:rgba(102,126,234,0.5);transform:translateY(-4px)}
+.platform-badge{display:inline-block;padding:4px 12px;border-radius:6px;font-size:12px;font-weight:600;margin-bottom:12px}
+.badge-chatgpt{background:rgba(16,163,127,0.2);color:#10a37f}
+.badge-claude{background:rgba(204,120,92,0.2);color:#cc785c}
+.badge-midjourney{background:rgba(255,255,255,0.1);color:#fff}
+.badge-gemini{background:rgba(142,124,195,0.2);color:#9b8ad1}
+.badge-cursor{background:rgba(37,99,235,0.2);color:#3b82f6}
+.card h3{font-size:18px;font-weight:600;margin-bottom:8px}
+.card p{color:#94a3b8;font-size:14px;margin-bottom:12px}
+.card-meta{display:flex;justify-content:space-between;align-items:center}
+.price{font-size:20px;font-weight:700;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.rating{color:#fbbf24;font-size:14px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tag{background:rgba(102,126,234,0.1);color:#a78bfa;padding:4px 10px;border-radius:20px;font-size:12px}
+.platforms{padding:60px 24px;background:rgba(255,255,255,0.02)}
+.platforms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;max-width:1200px;margin:0 auto}
+.platform-item{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;text-align:center;cursor:pointer;transition:all 0.3s}
+.platform-item:hover{border-color:#667eea}
+.platform-item img{height:32px;margin-bottom:8px}
+.cta{padding:80px 24px;text-align:center}
+@media(max-width:768px){.nav-links{display:none}.hero h1{font-size:32px}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+<div class="nav-content">
+<a href="index.html" class="logo">FlowKit AI</a>
+<div class="nav-links">
+<a href="browse.html">Browse</a>
+<a href="sell.html">Sell</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="upload.html"><button class="btn-primary" style="padding:8px 20px">Upload</button></a>
+</div>
+</div>
+</nav>
+
+<section class="hero">
+<h1>The Marketplace for AI Workflows</h1>
+<p>Professional prompts, complete systems, and automation workflows that actually get results.</p>
+<div class="search-box">
+<input type="text" placeholder="Search workflows...">
+</div>
+<div>
+<a href="browse.html"><button class="btn-primary">Explore Workflows</button></a>
+<a href="sell.html"><button class="btn-secondary">Start Selling</button></a>
+</div>
+</section>
+
+<section class="section">
+<div class="section-header">
+<h2>🔥 Trending Now</h2>
+<a href="browse.html" class="view-all">View All</a>
+</div>
+<div class="grid">
+<div class="card">
+<span class="platform-badge badge-chatgpt">ChatGPT</span>
+<h3>Viral Tweet Generator</h3>
+<p>Complete system for creating viral Twitter content with hooks and CTAs</p>
+<div class="tags">
+<span class="tag">Social</span>
+<span class="tag">Twitter</span>
+</div>
+<div class="card-meta">
+<span class="price">$29</span>
+<span class="rating">★ 4.9 (127)</span>
+</div>
+</div>
+
+<div class="card">
+<span class="platform-badge badge-claude">Claude</span>
+<h3>SEO Blog Writer</h3>
+<p>Research, outline, and write complete SEO-optimized articles</p>
+<div class="tags">
+<span class="tag">SEO</span>
+<span class="tag">Content</span>
+</div>
+<div class="card-meta">
+<span class="price">$49</span>
+<span class="rating">★ 4.8 (89)</span>
+</div>
+</div>
+
+<div class="card">
+<span class="platform-badge badge-midjourney">Midjourney</span>
+<h3>Product Photography</h3>
+<p>Generate professional product photos with consistent lighting and style</p>
+<div class="tags">
+<span class="tag">Design</span>
+<span class="tag">E-commerce</span>
+</div>
+<div class="card-meta">
+<span class="price">$39</span>
+<span class="rating">★ 4.9 (234)</span>
+</div>
+</div>
+
+<div class="card">
+<span class="platform-badge badge-cursor">Cursor</span>
+<h3>Full-Stack Boilerplate</h3>
+<p>Generate production-ready full-stack apps with auth, database, payments</p>
+<div class="tags">
+<span class="tag">Code</span>
+<span class="tag">React</span>
+</div>
+<div class="card-meta">
+<span class="price">$99</span>
+<span class="rating">★ 5.0 (45)</span>
+</div>
+</div>
+
+<div class="card">
+<span class="platform-badge badge-gemini">Gemini</span>
+<h3>Data Analysis Pipeline</h3>
+<p>Upload CSVs, get insights, charts, and executive summaries automatically</p>:
+<div class="tags">
+<span class="tag">Data</span>
+<span class="tag">Automation</span>
+</div>
+<div class="card-meta">
+<span class="price">$59</span>
+<span class="rating">★ 4.7 (67)</span>
+</div>
+</div>
+
+<div class="card">
+<span class="platform-badge badge-chatgpt">ChatGPT</span>
+<h3>Email Sequence Builder</h3>
+<p>7-day nurture sequences that convert leads into customers</p>
+<div class="tags">
+<span class="tag">Email</span>
+<span class="tag">Sales</span>
+</div>
+<div class="card-meta">
+<span class="price">$35</span>
+<span class="rating">★ 4.8 (156)</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="platforms">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px">
+<h2 style="text-align:center;margin-bottom:32px">Works With Your Favorite AI</h2>
+</div>
+<div class="platforms-grid">
+<div class="platform-item">
+<div style="font-size:24px;margin-bottom:8px">💬</div>
+<div style="font-weight:600">ChatGPT</div>
+</div>
+<div class="platform-item">
+<div style="font-size:24px;margin-bottom:8px
