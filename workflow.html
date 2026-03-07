@@ -1,4 +1,18 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>30-Day Content Marketing System — FlowKit AI</title> <meta name="description" content="Complete AI system that generates 30 days of content in under an hour. $99 one-time."> <style> * { margin: 0; padding: 0; box-sizing: border-box; } body { font-family: system-ui, sans-serif; background: #0a0a0f; color: #fff; line-height: 1.6; } .container { max-width: 800px; margin: 0 auto; padding: 0 24px; } .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px; background: rgba(10,10,15,0.9); border-bottom: 1px solid rgba(255,255,255,0.1); } .nav-content { display: flex; justify-content: space-between; align-items: center; } .logo { font-size: 24px; font-weight: 800; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; color: transparent; text-decoration: none; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workflow — FlowKit AI</title>
+<meta name="description" content="AI workflow system for content, marketing, and automation.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #0a0a0f; color: #fff; line-height: 1.6; }
+.container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+.navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px; background: rgba(10,10,15,0.9); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+.nav-content { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 24px; font-weight: 800; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
 .hamburger { cursor: pointer; background: none; border: none; padding: 8px; z-index: 1001; display: flex; flex-direction: column; gap: 5px; }
 .hamburger span { display: block; width: 24px; height: 2px; background: #fff; transition: all 0.3s; }
 .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
@@ -9,79 +23,341 @@
 .mobile-menu a { display: block; color: #fff; text-decoration: none; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: 500; font-size: 16px; transition: color 0.2s; }
 .mobile-menu a:hover { color: #a78bfa; }
 .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 998; opacity: 0; visibility: hidden; transition: all 0.3s; }
-.overlay.active { opacity: 1; visibility: visible; } .nav-link { color: #94a3b8; font-size: 14px; } .hero { padding: 140px 0 40px; } .badge { display: inline-block; padding: 8px 16px; background: rgba(102,126,234,0.1); border: 1px solid rgba(102,126,234,0.4); border-radius: 50px; font-size: 14px; color: #a78bfa; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; } h1 { font-size: 42px; font-weight: 800; margin-bottom: 16px; line-height: 1.2; } .subtitle { color: #94a3b8; font-size: 18px; margin-bottom: 30px; max-width: 600px; } .price { padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); margin: 30px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; } .price-tag { font-size: 48px; font-weight: 800; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; color: transparent; } .guarantee { color: #64748b; font-size: 14px; } .buy-btn { display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; text-decoration: none; border-radius: 10px; font-size: 18px; font-weight: 600; } .buy-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(102,126,234,0.4); } .section { padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1); } .section h2 { font-size: 24px; margin-bottom: 20px; } .features { list-style: none; } .features li { padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05); } .features li:last-child { border-bottom: none; } .features h3 { font-size: 16px; margin-bottom: 8px; color: #fff; } .features p { color: #94a3b8; font-size: 15px; } .deliverables { display: grid; gap: 12px; margin-top: 20px; } .item { display: flex; align-items: center; gap: 12px; color: #94a3b8; } .item:before { content: "📄"; }
-
-/* Preview Tease Styles */
+.overlay.active { opacity: 1; visibility: visible; }
+.hero { padding: 140px 0 40px; }
+.badge { display: inline-block; padding: 8px 16px; background: rgba(102,126,234,0.1); border: 1px solid rgba(102,126,234,0.4); border-radius: 50px; font-size: 12px; color: #a78bfa; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+.h1 { font-size: 36px; font-weight: 700; margin-bottom: 16px; line-height: 1.2; }
+@media (min-width: 768px) { .h1 { font-size: 42px; } }
+.subtitle { color: #94a3b8; font-size: 18px; margin-bottom: 30px; max-width: 600px; }
+.price { padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); margin: 30px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+.price-tag { font-size: 48px; font-weight: 800; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.guarantee { color: #64748b; font-size: 14px; }
+.buy-btn { display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; text-decoration: none; border-radius: 10px; font-size: 18px; font-weight: 600; transition: all 0.3s; border: none; cursor: pointer; }
+.buy-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(102,126,234,0.4); }
+.section { padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1); }
+.section h2 { font-size: 24px; margin-bottom: 20px; color: #fff; }
+.features { list-style: none; }
+.features li { padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.features li:last-child { border-bottom: none; }
+.features h3 { font-size: 16px; margin-bottom: 8px; color: #fff; }
+.features p { color: #94a3b8; font-size: 15px; }
+.deliverables { display: grid; gap: 12px; margin-top: 20px; }
+.item { display: flex; align-items: flex-start; gap: 12px; color: #94a3b8; font-size: 15px; }
+.item:before { content: "✓"; color: #10b981; font-weight: 700; }
 .preview-section { padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1); }
-.preview-container { position: relative; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 24px; margin-top: 20px; }
-.preview-content { font-family: 'SF Mono', 'Monaco', monospace; font-size: 14px; line-height: 1.8; color: #e2e8f0; white-space: pre-wrap; word-break: break-word; }
+.preview-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); border-radius: 20px; font-size: 12px; color: #f59e0b; margin-bottom: 16px; font-weight: 500; }
+.preview-container { position: relative; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 24px; margin-top: 20px; overflow: hidden; }
+.preview-content { font-family: 'SF Mono', 'Monaco', 'Consolas', monospace; font-size: 14px; line-height: 1.8; color: #e2e8f0; white-space: pre-wrap; word-break: break-word; }
 .preview-visible { color: #e2e8f0; }
-.preview-blur { filter: blur(4px); opacity: 0.5; user-select: none; }
-.preview-blur * { filter: blur(4px); }
-.preview-overlay { position: absolute; bottom: 0; left: 0; right: 0; height: 60%; background: linear-gradient(transparent, rgba(10,10,15,0.95) 60%); display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 40px 24px 24px; border-radius: 0 0 16px 16px; }
+.preview-blur { filter: blur(4px); opacity: 0.4; user-select: none; pointer-events: none; }
+.preview-overlay { position: absolute; bottom: 0; left: 0; right: 0; height: 55%; background: linear-gradient(transparent, rgba(10,10,15,0.95) 40%); display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 60px 24px 24px; border-radius: 0 0 16px 16px; }
 .preview-cta { text-align: center; }
 .preview-cta p { color: #94a3b8; font-size: 14px; margin-bottom: 16px; }
-.unlock-btn { display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; text-decoration: none; border-radius: 10px; font-size: 16px; font-weight: 600; box-shadow: 0 4px 20px rgba(102,126,234,0.4); transition: all 0.3s; }
+.unlock-btn { display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; text-decoration: none; border-radius: 10px; font-size: 16px; font-weight: 600; box-shadow: 0 4px 20px rgba(102,126,234,0.4); transition: all 0.3s; border: none; cursor: pointer; }
 .unlock-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(102,126,234,0.5); }
-.preview-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); border-radius: 20px; font-size: 12px; color: #10b981; margin-bottom: 12px; }
-.preview-badge::before { content: "🔒"; }
+.loading { text-align: center; padding: 80px 20px; color: #94a3b8; }
+.spinner { display: inline-block; width: 40px; height: 40px; border: 3px solid rgba(255,255,255,0.1); border-top-color: #667eea; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 16px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.error { text-align: center; padding: 80px 20px; color: #ef4444; }
+.error h2 { font-size: 24px; margin-bottom: 12px; color: #ef4444; }
+.error p { color: #94a3b8; margin-bottom: 24px; }
+.back-btn { display: inline-block; padding: 12px 24px; background: rgba(102,126,234,0.2); border: 1px solid rgba(102,126,234,0.4); color: #a78bfa; text-decoration: none; border-radius: 8px; font-size: 14px; transition: all 0.3s; }
+.back-btn:hover { background: rgba(102,126,234,0.3); }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.tag { padding: 4px 10px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; font-size: 12px; color: #94a3b8; }
+.seller { display: flex; align-items: center; gap: 12px; padding: 16px; background: rgba(255,255,255,0.03); border-radius: 12px; margin-top: 24px; }
+.seller-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); display: grid; place-items: center; font-weight: 700; color: #fff; font-size: 14px; }
+.seller-name { font-size: 14px; color: #fff; font-weight: 600; }
+.seller-label { font-size: 12px; color: #64748b; }
+.hidden { display: none; }
+@media (max-width: 640px) {
+.price { flex-direction: column; align-items: flex-start; }
+.preview-container { padding: 16px; }
+.h1 { font-size: 28px; }
+}
+</style>
+</head>
+<body>
 
-@media (max-width: 640px) { .price { flex-direction: column; align-items: flex-start; } }
-</style> </head> <body> <nav class="navbar"> <div class="container"> <div class="nav-content"> <a href="/" class="logo">FlowKit AI</a>
- <button class="hamburger" aria-label="Menu">
- <span></span>
- <span></span>
- <span></span>
- </button> </div> </div> </nav> <div class="overlay"></div> <div class="mobile-menu"> <a href="index.html">Home</a> <a href="browse.html">Browse</a> <a href="sell.html">Sell</a> <a href="free-tool.html">Free Tool</a> <a href="index.html#waitlist" style="display:block;margin-top:24px;padding:14px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;text-align:center;border-radius:10px;text-decoration:none;font-weight:600;">Join Waitlist</a> </div> <section class="hero"> <div class="container"> <div class="badge">AI Workflow System</div> <h1>30-Day Content Marketing System</h1> <p class="subtitle">Generate 30 days of blog posts, social content, and email sequences from a single topic. Complete system, not just prompts.</p> <div class="price"> <div> <div class="price-tag">$99</div> <div class="guarantee">One-time • 7-day guarantee</div> </div> <a href="#buy" class="buy-btn">Buy Now</a> </div> </div> </section>
-
-<!-- PREVIEW TEASE SECTION -->
-<section class="preview-section">
+<nav class="navbar">
 <div class="container">
-<div class="preview-badge">Preview — Unlock for Full Workflow</div>
+<div class="nav-content">
+<a href="index.html" class="logo">FlowKit AI</a>
+<button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
+</div>
+</nav>
+<div class="overlay" id="overlay"></div>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="index.html">Home</a>
+<a href="browse.html">Browse</a>
+<a href="sell.html">Sell</a>
+<a href="free-tool.html">Free Tool</a>
+</div>
+
+<div id="loadingState" class="loading">
+<div class="spinner"></div>
+<p>Loading workflow...</p>
+</div>
+
+<div id="errorState" class="error hidden">
+<h2>Workflow Not Found</h2>
+<p>We couldn't find that workflow. It may have been removed or the URL might be incorrect.</p>
+<a href="browse.html" class="back-btn">Browse Workflows</a>
+</div>
+
+<main id="mainContent" class="hidden">
+<section class="hero">
+<div class="container">
+<div id="platformBadge" class="badge">AI Workflow</div>
+<h1 id="workflowTitle" class="h1">Loading...</h1>
+<p id="workflowDesc" class="subtitle">Loading description...</p>
+<div class="tags" id="tagsContainer"></div>
+<div class="price">
+<div>
+<div class="price-tag" id="priceTag">$0</div>
+<div class="guarantee">One-time • Instant delivery</div>
+</div>
+<button id="buyBtn" class="buy-btn">Buy Now</button>
+</div>
+</div>
+</section>
+
+<section class="preview-section" id="previewSection">
+<div class="container">
+<div class="preview-badge">🔒 Preview — Unlock for Full Access</div>
 <h2>See What's Inside</h2>
 <div class="preview-container">
-<div class="preview-content">
-<div class="preview-visible">"You are an AI-powered Content Marketing System. Your task is to transform a single business topic into a complete 30-day content calendar including blog posts, social media content, and email sequences...</div>
-<div class="preview-blur">SPRÏNGBO0ARD_SYSTEM_V2.0_INIT...
-
-STEP 1: AUDIENCE ANALYSIS
-[Deep personality matrix generation activated]
-→ Target demographic: {{$USER_INPUT}}
-→ Pain point extraction: Algorithm scanning...
-→ Voice calibration: {{TONE_SELECTION}}
-
-STEP 2: CONTENT PILLAR GENERATION
-[30-day strategic architecture building]
-→ Week 1: Authority positioning content
-→ Week 2: Educational value series
-→ Week 3: Social proof and case studies
-→ Week 4: Conversion-focused sequences
-
-[CONTENT BLOCKS RENDERING]
-
-{"output_type": "multi_channel_calendar"}
-{"platforms": ["blog", "linkedin", "twitter", "email"]}
-{"seo_optimized": true}
-{"cta_integrated": true}
-
-STEP 3: SPECIFIC DELIVERABLES
-→ 10 complete blog post outlines
-→ 30 social media posts with hooks
-→ 5 email newsletter drafts
-→ Visual content briefs
-→ Distribution schedule
-
-[EXECUTION PROTOCOLS]
-...and 15 more steps not shown</div>
-</div>
+<div class="preview-content" id="previewContent"></div>
 <div class="preview-overlay">
 <div class="preview-cta">
-<p>Unlock the complete {{500}}+ word system prompt</p>
-<a href="#buy" class="unlock-btn">Unlock for $99</a>
+<p>Unlock the complete workflow</p>
+<button class="unlock-btn" id="unlockBtn">Unlock Now</button>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<section class="section"> <div class="container"> <h2>What You Get</h2> <ul class="features"> <li> <h3>30-Day Content Calendar</h3> <p>Complete day-by-day posting schedule with topics, angles, and formats for blog, LinkedIn, Twitter, and email.</p> </li> <li> <h3>10 Blog Post Outlines</h3> <p>SEO-optimized outlines with H1s, H2s, target keywords, and meta descriptions. Ready to expand into full posts.</p> </li> <li> <h3>30 Social Posts</h3> <p>Platform-specific content for LinkedIn, Twitter/X, and Instagram. Hooks, body copy, and CTAs included.</p> </li> <li> <h3>5 Email Newsletters</h3> <p>Complete email drafts with subject lines, preview text, and calls-to-action.</p> </li> <li> <h3>Visual Briefs</h3> <p>Image specs, color palettes, and design directions for every piece of content.</p> </li> </ul> </div> </section> <section class="section"> <div class="container"> <h2>Deliverables</h2> <div class="deliverables"> <div class="item">Content Marketing System — System Prompt (copy/paste)</div> <div class="item">Setup Guide — Step-by-step implementation</div> <div class="item">Example Outputs — Sample calendars and posts</div> <div class="item">Configuration Files — Ready to customize</div> <div class="item">Notion Template — Optional calendar tracking</div> </div> </div> </section> <section class="section" id="buy"> <div class="container"> <h2>Your Purchase</h2> <div class="price" style="border-top: none; border-bottom: none; padding: 30px 0 0;"> <div> <div class="price-tag">$99</div> <div class="guarantee">Instant delivery • PDF + prompts</div> </div> <!-- LEMON SQUEEZY BUTTON PLACEHOLDER --> <a href="https://flowkit.lemonsqueezy.com/checkout/buy/YOUR_PRODUCT_ID" class="buy-btn">Buy Now</a> </div> </div> </section> <script> const hamburger = document.querySelector('.hamburger'); const mobileMenu = document.querySelector('.mobile-menu'); const overlay = document.querySelector('.overlay'); const menuLinks = document.querySelectorAll('.mobile-menu a'); function toggleMenu() { hamburger.classList.toggle('active'); mobileMenu.classList.toggle('active'); overlay.classList.toggle('active'); } hamburger.addEventListener('click', toggleMenu); overlay.addEventListener('click', toggleMenu); menuLinks.forEach(link => { link.addEventListener('click', toggleMenu); }); </script> </body> </html>
+<section class="section">
+<div class="container">
+<h2>What You Get</h2>
+<ul class="features" id="featuresList">
+<li>
+<h3>Complete Workflow System</h3>
+<p>Full system prompt ready to copy and use immediately.</p>
+</li>
+</ul>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<h2>Deliverables</h2>
+<div class="deliverables" id="deliverablesList">
+<div class="item">Full workflow system prompt</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="buy">
+<div class="container">
+<h2>Your Purchase</h2>
+<div class="price" style="border-top: none; border-bottom: none; padding: 30px 0 0;">
+<div>
+<div class="price-tag" id="bottomPrice">$0</div>
+<div class="guarantee">Instant delivery • Use forever</div>
+</div>
+<button id="buyBtnBottom" class="buy-btn">Buy Now</button>
+</div>
+<div class="seller">
+<div class="seller-avatar" id="sellerAvatar">S</div>
+<div>
+<div class="seller-name" id="sellerName">Seller</div>
+<div class="seller-label">Verified Creator</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+const SUPABASE_URL = 'https://jmlskgsffhuthqgexyfbg.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImptbHNrZ3NmZmh1dGhxZXh5ZmJnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4MTI3NzksImV4cCI6MjA4ODM4ODc3OX0.rZTajagnrtmSW1LMYCwQobP5l57RNKzPDmEsN9eRtOk';
+const supabase = supabaseJs.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+let currentWorkflow = null;
+
+const platformLabels = {
+chatgpt: 'ChatGPT / OpenAI',
+claude: 'Claude / Anthropic',
+gemini: 'Google Gemini',
+midjourney: 'Midjourney',
+dalle: 'DALL-E',
+cursor: 'Cursor',
+perplexity: 'Perplexity',
+'stable-diffusion': 'Stable Diffusion',
+grok: 'Grok / xAI',
+universal: 'Universal'
+};
+
+const categoryLabels = {
+content: 'Content Creation',
+social: 'Social Media',
+seo: 'SEO & Marketing',
+email: 'Email Marketing',
+ads: 'Advertising',
+code: 'Programming',
+data: 'Data Analysis',
+automation: 'Automation',
+design: 'Design & Creative',
+writing: 'Writing & Copy',
+research: 'Research',
+productivity: 'Productivity'
+};
+
+function toggleMenu() {
+document.querySelector('.hamburger').classList.toggle('active');
+document.getElementById('mobileMenu').classList.toggle('active');
+document.getElementById('overlay').classList.toggle('active');
+}
+
+document.querySelector('.hamburger').addEventListener('click', toggleMenu);
+document.getElementById('overlay').addEventListener('click', toggleMenu);
+
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+link.addEventListener('click', toggleMenu);
+});
+
+async function loadWorkflow() {
+const urlParams = new URLSearchParams(window.location.search);
+const workflowId = urlParams.get('id');
+const slug = urlParams.get('slug');
+
+if (!workflowId && !slug) {
+showError();
+return;
+}
+
+try {
+let query = supabase.from('workflows').select('*');
+if (workflowId) {
+query = query.eq('id', workflowId);
+} else {
+query = query.eq('slug', slug);
+}
+
+const { data: workflows, error } = await query;
+
+if (error) throw error;
+
+if (!workflows || workflows.length === 0) {
+showError();
+return;
+}
+
+currentWorkflow = workflows[0];
+renderWorkflow(currentWorkflow);
+
+} catch (err) {
+console.error('Error loading workflow:', err);
+showError();
+}
+}
+
+function showError() {
+document.getElementById('loadingState').classList.add('hidden');
+document.getElementById('errorState').classList.remove('hidden');
+document.getElementById('mainContent').classList.add('hidden');
+}
+
+function renderWorkflow(wf) {
+document.getElementById('loadingState').classList.add('hidden');
+document.getElementById('errorState').classList.add('hidden');
+document.getElementById('mainContent').classList.remove('hidden');
+
+const price = (wf.price / 100).toFixed(2);
+const platform = platformLabels[wf.platform] || wf.platform || 'AI Workflow';
+const category = categoryLabels[wf.category] || wf.category || 'AI System';
+
+document.title = `${wf.title} — FlowKit AI`;
+document.querySelector('meta[name="description"]').setAttribute('content', wf.description?.substring(0, 160) || 'AI workflow system');
+
+document.getElementById('platformBadge').textContent = `${platform} • ${category}`;
+document.getElementById('workflowTitle').textContent = wf.title;
+document.getElementById('workflowDesc').textContent = wf.description || 'No description provided.';
+
+document.getElementById('priceTag').textContent = `$${price}`;
+document.getElementById('bottomPrice').textContent = `$${price}`;
+
+document.getElementById('tagsContainer').innerHTML = (wf.tags || []).map(t => `<span class="tag">${t}</span>`).join('');
+
+// Render preview with blur effect
+const content = wf.content || wf.description || '';
+const previewLength = 120;
+const visibleText = content.substring(0, previewLength);
+const hiddenText = content.substring(previewLength);
+
+document.getElementById('previewContent').innerHTML = `
+<div class="preview-visible">${escapeHtml(visibleText)}</div>
+<div class="preview-blur">${escapeHtml(hiddenText)}</div>
+`;
+
+document.getElementById('previewSection').querySelector('.preview-cta p').textContent = 
+`Unlock the complete ${content.length.toLocaleString()} character workflow`;
+
+// Render features from description
+const featuresList = document.getElementById('featuresList');
+featuresList.innerHTML = `
+<li>
+<h3>Complete System</h3>
+<p>${wf.description?.substring(0, 200) || 'Full AI workflow system ready to use.'}</p>
+</li>
+<li>
+<h3>Instant Access</h3>
+<p>Get immediate access after purchase. No waiting.</p>
+</li>
+<li>
+<h3>Lifetime Updates</h3>
+<p>Free updates when the workflow is improved.</p>
+</li>
+`;
+
+// Render deliverables
+const deliverables = wf.deliverables || ['Complete workflow system'];
+const deliverablesList = document.getElementById('deliverablesList');
+deliverablesList.innerHTML = deliverables.map(d => `<div class="item">${d}</div>`).join('');
+
+// Seller info
+const sellerName = wf.seller_name || 'Anonymous';
+document.getElementById('sellerName').textContent = sellerName;
+document.getElementById('sellerAvatar').textContent = sellerName.charAt(0).toUpperCase();
+
+// Wire up buy buttons
+const buyHandler = () => {
+if (wf.payment_url) {
+window.open(wf.payment_url, '_blank');
+} else {
+alert(`Purchase flow for: ${wf.title}\n\nPrice: $${price}\n\nTODO: Connect your payment provider (LemonSqueezy, Stripe, etc.)`);
+}
+};
+
+document.getElementById('buyBtn').addEventListener('click', buyHandler);
+document.getElementById('buyBtnBottom').addEventListener('click', buyHandler);
+document.getElementById('unlockBtn').addEventListener('click', buyHandler);
+}
+
+function escapeHtml(text) {
+if (!text) return '';
+const div = document.createElement('div');
+div.textContent = text;
+return div.innerHTML;
+}
+
+// Load on page load
+loadWorkflow();
+</script>
+</body>
+</html>
